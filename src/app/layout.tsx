@@ -17,9 +17,13 @@ const body = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Lattice | Curated software marketplace",
+  title: {
+    default: "Lattice | Curated software marketplace",
+    template: "%s | Lattice",
+  },
   description:
     "Lattice helps teams discover, compare, and list digital tools with clarity.",
+  applicationName: "Lattice",
 };
 
 export default function RootLayout({
