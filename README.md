@@ -23,8 +23,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Role  | Email              | Password     |
 |-------|--------------------|--------------|
-| User  | user@lattice.app   | User@12345   |
-| Admin | admin@lattice.app  | Admin@12345  |
+| User  | user@gmail.com   | User@12345   |
+| Admin | admin@gmail.com  | Admin@12345  |
 
 ## Scripts
 
