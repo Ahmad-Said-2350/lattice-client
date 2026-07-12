@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { FiStar } from "react-icons/fi";
+import { formatPrice } from "@/lib/format-price";
+import { formatRating } from "@/lib/format-rating";
+import { getPrimaryImage } from "@/lib/get-primary-image";
 import type { ToolItem } from "@/lib/types";
 
 export function ItemCard({ item }: { item: ToolItem }) {
@@ -10,7 +13,7 @@ export function ItemCard({ item }: { item: ToolItem }) {
       <div className="relative aspect-[16/10] overflow-hidden bg-surface">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={item.images[0]}
+          src={getPrimaryImage(item)}
           alt={item.title}
           className="h-full w-full object-cover"
         />
@@ -20,7 +23,9 @@ export function ItemCard({ item }: { item: ToolItem }) {
           <h3 className="line-clamp-1 font-display text-lg font-semibold">
             {item.title}
           </h3>
-          <span className="badge badge-accent shrink-0">${item.price}</span>
+          <span className="badge badge-accent shrink-0">
+            {formatPrice(item.price)}
+          </span>
         </div>
         <p className="line-clamp-2 text-sm leading-relaxed text-muted">
           {item.shortDescription}
@@ -29,7 +34,7 @@ export function ItemCard({ item }: { item: ToolItem }) {
           <span>{item.category}</span>
           <span className="inline-flex items-center gap-1">
             <FiStar className="text-accent" />
-            {item.rating.toFixed(1)} · {item.platform}
+            {formatRating(item.rating)} · {item.platform}
           </span>
         </div>
         <Link
