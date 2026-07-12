@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
 type Variant = "primary" | "accent" | "secondary" | "danger" | "ghost";
 type Size = "md" | "sm";
@@ -28,7 +29,12 @@ export function Button({
   return (
     <button
       type={type}
-      className={`btn ${variantClass[variant]} ${size === "sm" ? "btn-sm" : ""} ${className}`}
+      className={cn(
+        "btn",
+        variantClass[variant],
+        size === "sm" && "btn-sm",
+        className
+      )}
       {...props}
     >
       {children}
