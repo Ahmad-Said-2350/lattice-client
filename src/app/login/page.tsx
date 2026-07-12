@@ -5,12 +5,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { apiFetch, ApiError } from "@/lib/api";
-import { dashboardPathForRole, getUserRole, signIn, signOut } from "@/lib/auth-client";
-
-const DEMO_CREDENTIALS = {
-  email: "user@lattice.app",
-  password: "User@12345",
-};
+import {
+  dashboardPathForRole,
+  getUserRole,
+  signIn,
+  signOut,
+} from "@/lib/auth-client";
+import { DEMO_USER } from "@/lib/demo-credentials";
 
 function LoginForm() {
   const router = useRouter();
@@ -27,8 +28,8 @@ function LoginForm() {
   }
 
   function fillDemoLogin() {
-    setEmail(DEMO_CREDENTIALS.email);
-    setPassword(DEMO_CREDENTIALS.password);
+    setEmail(DEMO_USER.email);
+    setPassword(DEMO_USER.password);
     setError("");
   }
 
