@@ -7,6 +7,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { MobileNavDrawer } from "@/components/layout/MobileNavDrawer";
 import { Button } from "@/components/ui/Button";
 import { dashboardPathForRole, signOut } from "@/lib/auth-client";
+import { PRIMARY_NAV } from "@/lib/nav-links";
 import { useAppRole } from "@/lib/use-app-role";
 
 /**
@@ -14,12 +15,7 @@ import { useAppRole } from "@/lib/use-app-role";
  * - Mobile:  < 768px  → hamburger + drawer
  * - Tablet+: ≥ 768px  → full nav (no hamburger)
  */
-const publicLinks = [
-  { href: "/", label: "Home" },
-  { href: "/explore", label: "Explore" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+const publicLinks = [...PRIMARY_NAV];
 
 export function Navbar() {
   const pathname = usePathname();
